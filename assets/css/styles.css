@@ -8,4 +8,58 @@
     font-size: 16px;
     line-height: 1;
     color: white;
+ }
+
+  #overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.container {
+    position: absolute;
+    width: 50%;
+    height:70%;
+    border: 2px solid white;
+    top: 8%;
+    right: 25%;
+    left: 50%;
+    margin-left: -25%
+}
+
+.btn {
+    width: 400px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0);
+    color: white;
+    opacity: 0.8;
+    border-radius: 5000px;
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    transition: all 0.35s ease;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
   }
+
+.btn-position {
+    position: absolute;
+    bottom:10px;
+    right: 25%;
+    left: 50%;
+    margin-left: -200px;
+}
+
+.btn:hover {
+    opacity: 1.0;
+    background-color: black;
+    cursor: pointer
+ } 
+ 
