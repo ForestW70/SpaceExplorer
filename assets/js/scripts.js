@@ -50,7 +50,6 @@ function renderInfo() {
   }
 }
 
-
 launchBtn.click( (e) => {
   e.preventDefault();
 
