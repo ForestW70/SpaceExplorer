@@ -58,6 +58,7 @@ launchBtn.click( (e) => {
     launchBtn.addClass("hide");
     mainPage.addClass("hide");
     modalForm.removeClass("hide");
+    console.log("hello");
   } else {
     launchDashboard();
   }
