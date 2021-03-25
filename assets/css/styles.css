@@ -20,6 +20,40 @@
     bottom: 0;
 }
 
+#desc-query {
+  position: absolute;
+  background-color:rgba(255, 255, 255, 0);
+}
+
+#desc-btn {
+  color: yellow;
+  cursor: pointer;
+}
+
+.fa-lightbulb {
+  background-color:rgba(255, 255, 255, 0);
+  margin-left: 50px;
+  margin-top: 100px;
+}
+
+.desc-container {
+  width: 40%;
+  height: auto;
+  background-color:rgb(224, 226, 202);
+  border-radius: 10px;
+  padding: 10px
+}
+
+.main-desc {
+  background-color:rgb(224, 226, 202);
+  color: black;
+  border-radius: 10px;
+}
+
+b {
+  background-color:rgba(255, 255, 255, 0)
+}
+
 .container {
     position: absolute;
     width: 50%;
@@ -70,8 +104,8 @@ h1 {
   }
 
 .btn-position {
-    position: absolute;
-    bottom:10px;
+    position: absolute; 
+    bottom:10px;    
     right: 25%;
     left: 50%;
     margin-left: -200px;

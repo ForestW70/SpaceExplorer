@@ -5,19 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Document</title>
 </head>
 
 <body>
     <div class = "wrapper">
-        <div class = "main-page">
-            <img id="overlay" src="assets/images/galaxy.jpg">
-        <!-- <div class="container">
-            <img>
-        </div> -->
-        <h1>Welcome to Space Explorer</h1>
-            <button class="btn btn-position" type="button"><b>Start Exploring!</b></button>
+        <div class = "main-page">   
+        <img id="overlay" src="assets/images/galaxy.jpg">
+        <h1>Welcome to Space Explorer</h1>    
+        <div id="desc-query">
+            <i id="desc-btn" class="fas fa-lightbulb" onclick="renderInfo()"></i>
+            <div class= "desc-container" id="description" style="display:none">
+                <h4 class= "main-desc" id="desc-date"></h4>
+                <h4 class= "main-desc" id="desc-header"></h4>
+                <div class= "main-desc" id="desc-body"></div>
+            </div>
+        </div>
+        <button class="btn btn-position" type="button"><b>Start Exploring!</b></button>
             <!-- initial starting page -->
         </div>
         <div class = "form">
@@ -30,5 +36,6 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script src="assets/js/scripts.js"></script>
 </html>
