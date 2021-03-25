@@ -31,12 +31,32 @@
     margin-left: -25%
 }
 
+h1 {
+  text-align:center;
+  width: 100%;
+  height: auto;
+  background-color: black;
+  border: 10px solid black;
+  color: white;
+  opacity: 0.6;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  position: fixed;
+  overflow: hidden;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  transition: all 0.35s ease;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
 .btn {
-    width: 400px;
-    height: 80px;
-    background-color: rgba(255, 255, 255, 0);
+    width: auto;
+    height: auto;
+    background-color: black;
+    border: 10px solid black;
     color: white;
-    opacity: 0.8;
+    opacity: 0.6;
     border-radius: 5000px;
     padding: 1rem 2rem;
     text-transform: uppercase;
