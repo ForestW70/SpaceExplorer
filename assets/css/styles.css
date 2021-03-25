@@ -105,7 +105,7 @@ h1 {
 
 .btn-position {
     position: absolute;
-    bottom:10px;
+    bottom:10px;    
     right: 25%;
     left: 50%;
     margin-left: -200px;
