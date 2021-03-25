@@ -117,7 +117,31 @@ h1 {
     opacity: 1.0;
     background-color: black;
     cursor: pointer
- } 
+} 
+
+.astro-pix {
+    position: relative;
+}
+
+.form-style {
+    position: absolute;
+    color: black;
+    border: 1px solid black;
+    margin: auto;
+    width: 50%;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    top: 25vmin;
+    left: 30vmax;
+}
+
+.form-style fieldset {
+    padding: 10px;
+}
+
+.form-style legend {
+    padding-top: 10px;
+}
  
 .dashboard img {
   width: 100%;
@@ -139,3 +163,8 @@ h1 {
   letter-spacing: 2px;
   text-align:center;
 }
+
+.hide {
+    display: none;
+}
+

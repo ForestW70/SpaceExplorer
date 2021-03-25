@@ -13,6 +13,7 @@
 <body>
     <div class = "wrapper">
         <div class = "main-page">   
+        <div id="start-page" class = "main-page">   
         <h1>Welcome to Space Explorer</h1>    
         <div id="desc-query">
             <i id="desc-btn" class="fas fa-lightbulb" onclick="renderInfo()"></i>
@@ -22,11 +23,61 @@
                 <div class= "main-desc" id="desc-body"></div>
             </div>
         </div>
-        <button class="btn btn-position" type="button"><b>Start Exploring!</b></button>
+        <button id="launch-btn" class="btn btn-position" type="button"><b>Start Exploring!</b></button>
             <!-- initial starting page -->
         </div>
         <div class = "form" style="display:none">
             <!-- form for user inputs -->
+
+        <div>
+            
+          <div id="modal-form" class="hide" data-reveal aria-labelledby="userForm" aria-hidden="true" role="dialog">
+            <img src="assets/images/galaxy.jpg" class="astro-pix">
+            <form class="form-style">
+                <fieldset>
+                  <legend id="userForm">Tell us a bit about yourself!</legend>
+    
+                  <p>
+                    <label for="firstName">
+                    First name: <input type="text" id="firstName">
+                    </label>
+                  </p>
+        
+                  <p>
+                    <label for="dob">
+                    Date of Birth: <input type="date" id="dob">
+                    </label>
+                  </p>
+        
+                  <p>
+                    <label for="zipCode">
+                    Zip code: <input type="text" id="zipCode">
+                    </label>
+                  </p>
+        
+                  <p>
+                    <label for="favPlanet">
+                    Favorite planet: 
+                    </label>
+                    <select id="favPlanet">
+                        <option value="Murcury">Murcury</option>
+                        <option value="Venus">Venus</option>
+                        <option value="Earth">Earth</option>
+                        <option value="Mars">Mars</option>
+                        <option value="Jupiter">Jupiter</option>
+                        <option value="Saturn">Saturn</option>
+                        <option value="Uranus">Uranus</option>
+                        <option value="Neptune">Neptune</option>
+                        <option value="Pluto">Pluto</option>
+                    </select>
+                  </p>
+                  <p>
+                      <button id="form-submit" type="submit" class="button radius">Ready for launch!</button>
+                  </p>
+    
+                </fieldset>
+              </form>
+          </div>
         </div>
     </div>
 </body>
