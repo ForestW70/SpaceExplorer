@@ -9,7 +9,7 @@ fetch(astroPicTodayApi)
         return response.json();
       })
       .then(function (data) {
-        console.log(data);  
+        console.log(data);   
         let imgUrl = data.hdurl;
         body.append(`<img src='${imgUrl}'></img>`);
       });
