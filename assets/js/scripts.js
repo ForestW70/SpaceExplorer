@@ -1,3 +1,9 @@
+const mainPage = $("#start-page");
+const launchBtn = $("#launch-btn");
+const modalForm = $("#modal-form");
+const formSubmitBtn = $("#form-submit");
+const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
 
 let astroPicTodayApi = 'https://api.nasa.gov/planetary/apod?api_key=g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'
 
@@ -42,4 +48,40 @@ function renderInfo() {
   } else {
     info.style.display = "none";
   }
+}
+
+
+launchBtn.click( (e) => {
+  e.preventDefault();
+
+  if (!userInfo) {
+    launchBtn.addClass("hide");
+    mainPage.addClass("hide");
+    modalForm.removeClass("hide");
+    console.log("hello");
+  } else {
+    launchDashboard();
+  }
+  
+
+})
+
+formSubmitBtn.click( (e) => {
+  saveUserForm();
+})
+
+let saveUserForm = function() {
+
+  const userInfo = {
+    firstName: $("#firstName").val(),
+    bday: $("#dob").val(),
+    zip: $("#zipCode").val(),
+    favPlanet: $("#favPlanet").val()
+  };
+
+  localStorage.setItem('userInfo', JSON.stringify(userInfo));
+}
+
+let launchDashboard = function() {
+  startPageInfo.addClass("hide");
 }
