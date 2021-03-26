@@ -1,6 +1,5 @@
 *{
     box-sizing: border-box;
-    background-color:black;
   }
 
   @import 'foundation';
@@ -10,6 +9,7 @@
     font-size: 16px;
     line-height: 1;
     color: white;
+    background-color:black;
  }
 
   #overlay {
@@ -143,28 +143,32 @@ h1 {
     padding-top: 10px;
 }
  
-.dashboard img {
+header img {
   width: 100%;
   height: 200px;
 }
 
-.dashboard h1 {
+header h1 {
     margin-top: -150px;
 }
 
 .dashboard h2 {
   background-color: black;
+  opacity: 0.6;
   border: 10px solid black;
   color: white;
-  opacity: 0.6;
   padding: 1rem 2rem;
   text-transform: uppercase;
   font-size: 16px;
   letter-spacing: 2px;
   text-align:center;
+  border-bottom: 2px solid lightgray;
 }
 
 .hide {
     display: none;
 }
 
+.module {
+  border: 2px solid white;
+}
