@@ -120,10 +120,9 @@ let launchDashboard = function() {
   //     });
 // }
 
-//renderAstrology {
-  //astorology api: check Google Doc for specific API info
-  //once date of birth is retrieved from storage, add value to API call, fetch astrological information
-     //--- picture, basic information about sign (talk with group once API is found, data dependent)
+//renderMoonPhase {
+  //astorology api: https://rapidapi.com/astronomyapi-astronomyapi-default/api/astronomy?endpoint=apiendpoint_d15e47b7-f9e2-4ff8-82d0-c694a4bdfec3 
+  //once date of birth is retrieved from storage, add value to API call, fetch moon phase information and picture
   //append to picture to class-small-6[0]
   // fetch(API)
   //   .then(function (response) {
@@ -134,7 +133,7 @@ let launchDashboard = function() {
 // }
 
 //renderPlanet {
-  //planet api: (info only) https://rapidapi.com/astronomyapi-astronomyapi-default/api/astronomy?endpoint=apiendpoint_d15e47b7-f9e2-4ff8-82d0-c694a4bdfec3 
+  //planet api: https://rapidapi.com/astronomyapi-astronomyapi-default/api/astronomy?endpoint=apiendpoint_d15e47b7-f9e2-4ff8-82d0-c694a4bdfec3 
   //once planet is retrieved from storage, add value to API call, fetch information
   //append info to class-small-6[1]
   //  fetch(API)
