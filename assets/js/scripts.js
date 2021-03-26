@@ -1,7 +1,12 @@
+$(document).foundation();
+
 const mainPage = $("#start-page");
 const launchBtn = $("#launch-btn");
 const modalForm = $("#modal-form");
 const formSubmitBtn = $("#form-submit");
+// const info = $("#description");
+// let today = moment();
+
 const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
 
@@ -10,17 +15,29 @@ let astroPicTodayApi = 'https://api.nasa.gov/planetary/apod?api_key=g8dgZj7O16CE
 const body = $("body");
 
   
-const fetchApi = function(url) {
-  fetch(url)
-      .then(function (response) {
-          return response.json();
-        })
-        .then(function (data) {
-          console.log(data);   
-        });
-      }
+// fetch(astroPicTodayApi)
+//     .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         let img = data.hdurl;
+//         mainPage.append(`<img class='astro-pix' src='${img}'></img>`);
+//         renderInfo();
+//       });
 
 
+// function renderInfo() {
+//   if (info.style.display == "none") {
+//     let head = data.title;
+//     let desc = data.explanation;
+//     info.children[0].innerHTML = today.format("dddd, MMMM Do YYYY");
+//     info.children[1].innerHTML = "Title: " + head;
+//     info.children[2].innerHTML = desc;
+//     info.style.display = "block";
+//   } else {
+//     info.style.display = "none";
+//   }
+// }
 
 function renderInfo() {
   let today = moment()
@@ -31,13 +48,14 @@ function renderInfo() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data.title);
-        console.log(data.explanation);
-        let head = data.title
+        let img = data.hdurl;
+        let head = data.title;
         let desc = data.explanation;
-        info.children[0].innerHTML = today.format("dddd, MMMM Do YYYY")
-        info.children[1].innerHTML = "Title: " + head
-        info.children[2].innerHTML = desc
+        console.log(img);
+        $("#start-page").append(`<img class='astro-pix' src='${img}'></img>`)
+        info.children[0].innerHTML = today.format("dddd, MMMM Do YYYY");
+        info.children[1].innerHTML = "Title: " + head;
+        info.children[2].innerHTML = desc;
       });
     info.style.display = "block";
   } else {
@@ -57,8 +75,11 @@ launchBtn.click( (e) => {
     launchDashboard();
   }
   
-
 })
+
+function launchDashboard() {
+  window.location.href = "./dashboard.html";
+}
 
 formSubmitBtn.click( (e) => {
   saveUserForm();
@@ -69,9 +90,8 @@ let saveUserForm = function(e) {
   if ($("#firstName").val() == "" || $("#dob").val() == "" || $("#zipCode").val() == "") {
     confirm("Error: Please make sure to fill out all fields!");
     
-
-
   } else {
+
     const userInfo = {
       firstName: $("#firstName").val(),
       bday: $("#dob").val(),
@@ -80,15 +100,13 @@ let saveUserForm = function(e) {
     };
   
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
+    launchDashboard();
   }
 
   
 }
 
-let launchDashboard = function() {
 
-  startPageInfo.addClass("hide");
-}
 
 //when form is submitted with information, I want to use that info to display API information on dashboard
 
@@ -159,5 +177,3 @@ let launchDashboard = function() {
 
 
 //
-  $("#overlay").addClass("hide");
-}
