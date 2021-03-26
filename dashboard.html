@@ -9,29 +9,64 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Space Explorer</title>
 </head>
+<header>
+    <div>
+        <!-- header pic -->
+        <img src="assets/images/galaxy.jpg">
+    </div>
+    <div>
+        <h1>Welcome to Space, </h1>
+            <!-- append name from input form into the h1 div -->
+    </div>
+</header>
 <body>
     <div class = "dashboard">
-        <div>
-            <!-- header pic -->
-            <img src="assets/images/galaxy.jpg">
-        </div>
-        <div>
-            <h1>Welcome to Space, [NAME]</h1>
-        </div>
-        <div class = "grid-x">
-            <div class = "cell small-6">
-                <!-- weather module -->
-                <h2>Today's Weather in Your Area</h2>
-                <div class = "weather"></div>
-                <!-- astrology module -->
-                <h2>What's Your Sign?</h2>
-            </div>
-            <div class = "cell-small-6">
-                <!-- mars rover module -->
-                <h2>Mars Rover Footage from Your Birthday</h2>
-                <!-- fave planet module -->
-                <h2>Learn More About Your Favorite Planet</h2>
-
+        <div class = "grid-container">
+            <div class = "grid-x grid-padding-x">
+                <div class = "cell small-6">
+                    <div class = "grid-y">
+                        <div class = "cell small-6">
+                            <!-- weather module -->
+                            <h2>Today's Weather in Your Area</h2>
+                            <div class = "module" id= "weather">
+                                <p>content will go here</p>
+                                <!-- append content from API call here using weather id -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "grid-y">
+                        <div class = "cell small-6">
+                            <!-- astrology module -->
+                            <h2>What's Your Sign?</h2>
+                            <div class = "module" id = "astrology">
+                                <p>content will go here</p>
+                                <!-- append content from API call here using astrology id -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "cell small-6">
+                    <div class = "grid-y">
+                        <div class = "cell small-6">
+                            <!-- mars rover module -->
+                            <h2>Mars Rover Footage from Your Birthday</h2>
+                            <div class = "module" id = "mars">
+                                <p>content will go here</p>
+                                <!-- append content from API call here using mars id -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "grid-y">
+                        <div class = "cell small-6">
+                            <!-- fave planet module -->
+                            <h2>Learn More About Your Favorite Planet</h2>
+                            <div class = "module" id = "planet">
+                                <p>content will go here</p>
+                                <!-- append content from API call here using planet id -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
