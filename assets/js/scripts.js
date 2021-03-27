@@ -102,11 +102,10 @@ let saveUserForm = function(e) {
   
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
     launchDashboard();
-  }
-
-  
 }
-
+}
+$("h1").append(userInfo.firstName);
+console.log(userInfo.firstName)
 
 
 //when form is submitted with information, I want to use that info to display API information on dashboard
