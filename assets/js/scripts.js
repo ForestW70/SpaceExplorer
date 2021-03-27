@@ -118,19 +118,41 @@ let saveUserForm = function(e) {
   //once first name is retrieved from storage, display on to h1 - "Welcome to Space " + ...."
 //}
 
-//renderWeather {
-  //weather api: api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&appid={API key}
-  //once zip code value is retrieved from storage, push value to API call, fetch todays weather
-  //append current temperature to class=weather on dashboard
-            ///----will need to hard code US country code
-  // fetch(API)
-  //   .then(function (response) {
-  //       return response.json();
-  //     })
-  //     .then(function (data) {
-  //     });
-// }
-//}
+function renderWeather() {
+  let wRequest = "https://api.openweathermap.org/data/2.5/weather?zip=20136,US&units=imperial&appid=59948208350e6af8ced51673faaaf707"
+  let wLocal = document.getElementById("weather-today")
+  let t = document.getElementById("temperature")
+  let pic = document.getElementById("weather-pic")
+  let img = document.createElement("img")
+  let f = document.getElementById("forecast")
+  fetch(wRequest)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log (data)
+      // <---- Trying to create a function to pull temp and test for tell user if they should wear a jacket. ---->
+      // let coat = function cCheck() {
+      //   if (data.temp < 70) {
+      //     f.innerHTML = "but where a jacket!"
+      //   } else {
+      //     f.innerHTML = "and no jacket is needed!"
+      //   }
+      img.src = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
+      wLocal.innerHTML = "Current Weather in " + data.name
+      pic.append(img)
+      t.innerHTML = "Temperature: " + data.main.temp.toFixed()
+      if (data.weather[0].id = 800) { //works
+        f.innerHTML = "The forecast is calling for " + data.weather[0].main.toLowerCase() + " skies. It should be a great evening for star gazing!" //+ coat
+      } else if (data.weather[0].id = 801) { // function needs testing
+        f.innerHTML = "The forecast is calling for " + data.weather[0].description.toLowerCase() + ", but it should still be a great evening for star gazing!"
+      } else {
+        f.innerHTML = "The forecast looks bad. Today might not be the best day for stargazing!"
+      }
+    })
+}
+
+renderWeather()
 
 //renderRover {
   //mars rover api: check Google Doc for specific API info 
@@ -189,4 +211,3 @@ function renderMoonPhase() {
 // return to form: if i am done with my info and want to view someone else's info, button to return to form
 
 
-//
