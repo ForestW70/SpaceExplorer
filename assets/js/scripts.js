@@ -147,26 +147,15 @@ let saveUserForm = function(e) {
 
 
 function renderMoonPhase() {
-  var exampleURL = "https://api.nasa.gov/EPIC/api/natural/date/2015-10-31";
-
-  var apiKey = 'g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'; 
-  
-  var request = new XMLHttpRequest(); 
-  request.open('GET', exampleURL + '?api_key=' + apiKey, true);
-  
-  request.addEventListener('load',function(){
-  
-  if(request.status >= 200 && request.status < 400){
-  var response = JSON.parse(request.responseText);
-  console.log(response);
-  } 
-  else {
-       console.log("Error in network request: " + request.statusText);
-  }});
-  request.send(null);
+  // let today = moment();
+  // let currentYear = moment().format("YYYY");
+  // let currentMonth = moment().format("MM");
+  // let currentDay = moment().format("DD");
+  let URL = 'https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/epic_1b_20190530011359.png?api_key=o9cDoa4w5lfAuyUrzq10seTWFAEgyEPiL9BNPqZ7';
+  document.getElementById("earth").src = URL;
 }
 
-// renderMoonPhase();
+renderMoonPhase();
 
 //renderPlanet {
   //planet api: https://rapidapi.com/astronomyapi-astronomyapi-default/api/astronomy?endpoint=apiendpoint_d15e47b7-f9e2-4ff8-82d0-c694a4bdfec3 
@@ -187,6 +176,3 @@ function renderMoonPhase() {
 // home-button: if i am done with my info and want to view the APOD, button to return to home screen
 
 // return to form: if i am done with my info and want to view someone else's info, button to return to form
-
-
-//
