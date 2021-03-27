@@ -147,10 +147,6 @@ let saveUserForm = function(e) {
 
 
 function renderMoonPhase() {
-  // let today = moment();
-  // let currentYear = moment().format("YYYY");
-  // let currentMonth = moment().format("MM");
-  // let currentDay = moment().format("DD");
   let URL = 'https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/epic_1b_20190530011359.png?api_key=o9cDoa4w5lfAuyUrzq10seTWFAEgyEPiL9BNPqZ7';
   document.getElementById("earth").src = URL;
 }
