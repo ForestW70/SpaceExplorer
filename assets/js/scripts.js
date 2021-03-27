@@ -167,12 +167,12 @@ renderWeather()
 
 
 
-function renderMoonPhase() {
-  let URL = 'https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/epic_1b_20190530011359.png?api_key=o9cDoa4w5lfAuyUrzq10seTWFAEgyEPiL9BNPqZ7';
-  document.getElementById("earth").src = URL;
-}
+// function renderMoonPhase() {
+//   let URL = 'https://api.nasa.gov/EPIC/archive/natural/2019/05/30/png/epic_1b_20190530011359.png?api_key=o9cDoa4w5lfAuyUrzq10seTWFAEgyEPiL9BNPqZ7';
+//   document.getElementById("earth").src = URL;
+// }
 
-renderMoonPhase();
+// renderMoonPhase();
 
 //renderPlanet {
   //planet api: https://rapidapi.com/astronomyapi-astronomyapi-default/api/astronomy?endpoint=apiendpoint_d15e47b7-f9e2-4ff8-82d0-c694a4bdfec3 
@@ -189,7 +189,13 @@ renderMoonPhase();
 //renderInfo {
   //function to trigger all the functions at once ---- (check for significant info delay from various API calls) 
 //}
-
+document.getElementById("gohome").addEventListener("click", function () {
+  location.reload();
+})
+document.getElementById("clear-form").addEventListener("click", function () {
+  localStorage.clear();
+  renderInfo();
+});
 // home-button: if i am done with my info and want to view the APOD, button to return to home screen
 
 // return to form: if i am done with my info and want to view someone else's info, button to return to form
