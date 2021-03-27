@@ -11,6 +11,7 @@ const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 
 
 let astroPicTodayApi = 'https://api.nasa.gov/planetary/apod?api_key=g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'
+let earthPic = 'https://api.nasa.gov/EPIC/api/natural?api_key=g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'
 
 const body = $("body");
 
@@ -143,17 +144,29 @@ let saveUserForm = function(e) {
   //     });
 // }
 
-//renderMoonPhase {
-  //astorology api: https://rapidapi.com/astronomyapi-astronomyapi-default/api/astronomy?endpoint=apiendpoint_d15e47b7-f9e2-4ff8-82d0-c694a4bdfec3 
-  //once date of birth is retrieved from storage, add value to API call, fetch moon phase information and picture
-  //append to picture to class-small-6[0]
-  // fetch(API)
-  //   .then(function (response) {
-  //       return response.json();
-  //     })
-  //     .then(function (data) {
-  //     });
-// }
+
+
+function renderMoonPhase() {
+  var exampleURL = "https://api.nasa.gov/EPIC/api/natural/date/2015-10-31";
+
+  var apiKey = 'g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'; 
+  
+  var request = new XMLHttpRequest(); 
+  request.open('GET', exampleURL + '?api_key=' + apiKey, true);
+  
+  request.addEventListener('load',function(){
+  
+  if(request.status >= 200 && request.status < 400){
+  var response = JSON.parse(request.responseText);
+  console.log(response);
+  } 
+  else {
+       console.log("Error in network request: " + request.statusText);
+  }});
+  request.send(null);
+}
+
+// renderMoonPhase();
 
 //renderPlanet {
   //planet api: https://rapidapi.com/astronomyapi-astronomyapi-default/api/astronomy?endpoint=apiendpoint_d15e47b7-f9e2-4ff8-82d0-c694a4bdfec3 
