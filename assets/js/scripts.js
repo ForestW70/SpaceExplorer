@@ -189,9 +189,7 @@ renderWeather()
 //renderInfo {
   //function to trigger all the functions at once ---- (check for significant info delay from various API calls) 
 //}
-document.getElementById("gohome").addEventListener("click", function () {
-  location.reload();
-})
+
 document.getElementById("clear-form").addEventListener("click", function () {
   localStorage.clear();
   renderInfo();

@@ -185,3 +185,38 @@ header h1 {
 .module {
   border: 2px solid white;
 }
+
+.nav-buttons #clear-form{
+  background-color: black;
+  border: 10px solid black;
+  color: white;
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 20px;
+  display:inline-block;
+}
+
+.nav-buttons #gohome{
+  background-color: black;
+  border: 10px solid black;
+  color: white;
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 20px;
+  display:inline-block;
+}
+
+.nav-buttons:hover #clear-form{
+  opacity: 1.0;
+  background-color: black;
+  cursor: pointer
+} 
+.nav-buttons:hover #gohome{
+  opacity: 1.0;
+  background-color: black;
+  cursor: pointer
+} 
