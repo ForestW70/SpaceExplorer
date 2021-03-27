@@ -122,26 +122,35 @@ h1 {
 
 .astro-pix {
     position: relative;
+    z-index: -1;
+    width: 100%;
 }
 
 .form-style {
     position: absolute;
-    color: black;
+    color: #383333;
     border: 1px solid black;
     margin: auto;
     width: 50%;
-    background-color: whitesmoke;
+    background-color: #b3b3b3;
     border-radius: 10px;
     top: 25vmin;
-    left: 30vmax;
+    left: 25vmax;
+    box-shadow: 0px 0px 8px #8a8af5;
 }
 
 .form-style fieldset {
-    padding: 10px;
+    padding: 30px;
 }
 
 .form-style legend {
-    padding-top: 10px;
+  padding-top: 30px;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.form-input {
+  background-color: aliceblue;
 }
  
 header img {
