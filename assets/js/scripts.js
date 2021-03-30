@@ -246,13 +246,13 @@ renderRoverPic();
 //renderInfo {
   //function to trigger all the functions at once ---- (check for significant info delay from various API calls) 
 //}
-// document.getElementById("gohome").addEventListener("click", function () {
-//   location.reload();
-// })
-// document.getElementById("clear-form").addEventListener("click", function () {
-//   localStorage.clear();
-//   renderInfo();
-// });
+
+
+document.getElementById("clear-form").addEventListener("click", function () {
+  localStorage.clear();
+  renderInfo();
+});
+
 // home-button: if i am done with my info and want to view the APOD, button to return to home screen
 
 // return to form: if i am done with my info and want to view someone else's info, button to return to form
