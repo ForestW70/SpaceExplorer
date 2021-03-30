@@ -13,6 +13,9 @@ body {
     background-color:black;
 }
 
+#content {
+  display: flex
+}
 
 #overlay {
     position: fixed;
@@ -22,6 +25,19 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+@keyframes fa-blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+.fa-blink {
+-webkit-animation: fa-blink 2s linear infinite;
+-moz-animation: fa-blink 2s linear infinite;
+-ms-animation: fa-blink 2s linear infinite;
+-o-animation: fa-blink 2s linear infinite;
+animation: fa-blink 2s linear infinite;
 }
 
 #desc-query {
@@ -105,7 +121,16 @@ h1 {
     transition: all 0.35s ease;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
-  }
+}
+
+.module {
+  border: 2px solid white
+}
+
+iframe {
+  width: 570px;
+  height: 457px;
+}
 
 .btn-position {
     position: absolute; 
@@ -183,8 +208,39 @@ header h1 {
     display: none;
 }
 
-.module {
+
+.side-nav {
+  width: 20%;
   border: 2px solid white;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px
+}
+
+#weather-today {
+  text-align:center;
+  font-size: 24px
+}
+
+#temperature {
+  font-size: 20px;
+}
+
+#weather-pic {
+  background-size: 200px
+}
+
+#sunset, #forecast {
+  font-size: 20px;
+}
+
+#moon-pic {
+  padding-left: 50%;
+  padding-right: 25%;
+  margin-left: -50px
+}
+#moon-info {
+  font-size: 20px;
 }
 
 
