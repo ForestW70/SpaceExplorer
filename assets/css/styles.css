@@ -1,8 +1,9 @@
-*{
-    box-sizing: border-box;
-  }
 
-  @import 'foundation';
+*{
+  box-sizing: border-box;
+}
+
+@import 'foundation';
   
 body {
     font-family: 'Open Sans', sans-serif;
@@ -185,9 +186,12 @@ header img {
 
 header h1 {
     margin-top: -150px;
-}
+    position: sticky;
+    top: 0;
+  }
 
 .dashboard h2 {
+  margin-top: 60px;
   background-color: black;
   opacity: 0.6;
   border: 10px solid black;
@@ -238,3 +242,90 @@ header h1 {
 #moon-info {
   font-size: 20px;
 }
+
+
+.nav-buttons #clear-form{
+  background-color: black;
+  border: 10px solid black;
+  color: white;
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 20px;
+  display:inline-block;
+}
+
+.nav-buttons #gohome{
+  background-color: black;
+  border: 10px solid black;
+  color: white;
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding: 20px;
+  display:inline-block;
+}
+
+.nav-buttons:hover #clear-form{
+  opacity: 1.0;
+  background-color: black;
+  cursor: pointer
+} 
+.nav-buttons:hover #gohome{
+  opacity: 1.0;
+  background-color: black;
+  cursor: pointer
+} 
+
+
+/* rover picture module */
+.rover-button {
+  color: #fff;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: small;
+}
+
+#roverPicture {
+  display: block;
+  
+}
+
+.rover-pic-info {
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  
+}
+
+.rover-pic-info p {
+  margin: 15px auto;
+  font-size: 16px;
+  border-bottom: 1px solid cornsilk;
+  
+}
+
+
+
+.rover-pic-info span {
+  margin: 5px auto;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 100;
+  font-style: italic;
+  color: #c5bcbc;
+}
+
+.mars-buttons {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.mars-buttons button {
+  margin: 0 3px;
+}
+
+
+

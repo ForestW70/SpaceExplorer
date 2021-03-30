@@ -17,10 +17,13 @@
         <img src="assets/images/galaxy.jpg">
     </div>
     <div>
+
         <h1>Welcome to Space, </h1>
-    </div>
-</header> -->
+        <h1 id = "append-name">Welcome to Space, </h1>
+            <!-- append name from input form into the h1 div -->
+
 <body>
+
     <header>
         <div>
             <img src="assets/images/galaxy.jpg">
@@ -91,6 +94,60 @@
                                 <div class = "module" id = "planet">
                                     <!-- append content from API call here using planet id -->
                                 </div>
+=======
+    <div class = "dashboard">
+        <div class = "grid-container">
+            <div class = "grid-x grid-padding-x">
+                <div class = "cell small-6">
+                    <div class = "grid-y">
+                        <div class = "cell small-6">
+                            <!-- weather module -->
+                            <h2 id="weather-today"></h2>
+                                <div id="weather-pic"></div>
+                                <h4 id= "temperature"></h4>
+                                <h5 id="forecast"></h5>
+                                <!-- append content from API call here using weather id -->
+                            </div>
+                        </div>
+                    <div class = "grid-y">
+                        <div class = "cell small-6">
+                            <!-- astrology module -->
+                            <h2>View of Earth from Space  </h2>
+                            <div class = "module">
+                                <img id="earth" style="width:100%">
+                                <!-- append content from API call here using moon id -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class = "cell small-6">
+                    <div class = "grid-y">
+                        <div class = "cell small-6">
+                            <!-- mars rover module -->
+                            <h2>Mars Rover Footage from Your Birthday</h2>
+                            <div class = "module" id = "mars">
+                                <!-- append content from API call here using mars id -->
+                                <div class="rover-pic-info">
+                                    <p id="greetingBlurb"></p>
+                                    <span id="roverName" class=""></span>
+                                    <span id="roverDateTaken" class=""></span>
+                                    <span id="roverId" class=""></span>  
+                                </div> 
+                                <div class="mars-buttons">
+                                    <button id="marsRoverNextButton" class="button round secondary hide">Next picture</button>
+                                    <button id="marsRoverYearButton" class="button round secondary hide" onClick="newYear()">Try a new year?</button>
+                                </div>
+                                <img src="" id="roverPicture"></img>
+                            </div>
+                        </div>
+                    </div>
+                    <div class = "grid-y">
+                        <div class = "cell small-6">
+                            <!-- fave planet module -->
+                            <h2>Learn More About Your Favorite Planet</h2>
+                            <div class = "module" id = "planet">
+                                <!-- append content from API call here using planet id -->
+
                             </div>
                         </div>
                     </div>
@@ -100,6 +157,10 @@
                 </div>
                 </div>
             </div>
+        </div>
+        <div class = "nav-buttons">
+            <button id="clear-form">Enter New Data</button>
+            <button id="gohome" onclick="location.href = './index.html'";>Go Home</button>
         </div>
     </div>
 </body>
