@@ -55,6 +55,17 @@
                             <h2>Mars Rover Footage from Your Birthday</h2>
                             <div class = "module" id = "mars">
                                 <!-- append content from API call here using mars id -->
+                                <div class="rover-pic-info">
+                                    <p id="greetingBlurb"></p>
+                                    <span id="roverName" class=""></span>
+                                    <span id="roverDateTaken" class=""></span>
+                                    <span id="roverId" class=""></span>  
+                                </div> 
+                                <div class="mars-buttons">
+                                    <button id="marsRoverNextButton" class="button round secondary hide">Next picture</button>
+                                    <button id="marsRoverYearButton" class="button round secondary hide" onClick="newYear()">Try a new year?</button>
+                                </div>
+                                <img src="" id="roverPicture"></img>
                             </div>
                         </div>
                     </div>

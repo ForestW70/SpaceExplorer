@@ -1,8 +1,9 @@
-*{
-    box-sizing: border-box;
-  }
 
-  @import 'foundation';
+*{
+  box-sizing: border-box;
+}
+
+@import 'foundation';
   
 body {
     font-family: 'Open Sans', sans-serif;
@@ -185,3 +186,54 @@ header h1 {
 .module {
   border: 2px solid white;
 }
+
+
+/* rover picture module */
+.rover-button {
+  color: #fff;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: small;
+}
+
+#roverPicture {
+  display: block;
+  
+}
+
+.rover-pic-info {
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  
+}
+
+.rover-pic-info p {
+  margin: 15px auto;
+  font-size: 16px;
+  border-bottom: 1px solid cornsilk;
+  
+}
+
+
+
+.rover-pic-info span {
+  margin: 5px auto;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 100;
+  font-style: italic;
+  color: #c5bcbc;
+}
+
+.mars-buttons {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.mars-buttons button {
+  margin: 0 3px;
+}
+
+
+
