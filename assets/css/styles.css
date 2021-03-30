@@ -210,11 +210,11 @@ header h1 {
 
 
 .side-nav {
-  width: 20%;
+  width: auto;
   border: 2px solid white;
   border-radius: 10px;
-  margin: 10px;
-  padding: 10px
+  margin: 40px;
+  padding: 10px;
 }
 
 #weather-today {
