@@ -13,10 +13,6 @@ body {
     background-color:black;
 }
 
-#content {
-  display: flex
-}
-
 #overlay {
     position: fixed;
     width: 100%;
@@ -43,6 +39,10 @@ animation: fa-blink 2s linear infinite;
 #desc-query {
   position: absolute;
   background-color:rgba(255, 255, 255, 0);
+}
+
+#content {
+  display: flex;
 }
 
 #desc-btn {
@@ -210,11 +210,12 @@ header h1 {
 
 
 .side-nav {
-  width: auto;
+  margin-top: 60px;
+  width: 20%;
   border: 2px solid white;
   border-radius: 10px;
-  margin: 40px;
-  padding: 10px;
+  margin-left: 10px;
+  padding: 10px
 }
 
 #weather-today {

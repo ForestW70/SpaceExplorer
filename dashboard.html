@@ -21,66 +21,70 @@
     </div>
 </header>
 <body>
-    <div class="dashboard">
-        <div class="grid-container">
-            <div class="grid-x grid-padding-x">
-                <div class="cell small-6">
-                    <div class="grid-y">
-                        <div class="cell small-6">
-                            <!-- fave planet module -->
-                            <h2 id = "planet-h2">Check out Your Fave Planet</h2>
-                            <div class="module" id="planet">
-                                <div id = "planet-pic"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid-y">
-                        <div class="cell small-6">
-                            <!-- astrology module -->
-                            <h2>Track the International Space Station</h2>
-                            <div class="module" style="border:none">
-                                <script id="tracker" type="text/javascript"
-                                    src="https://www.n2yo.com/js/widget-tracker.js"></script>
-                                <!-- append content from API call here using moon id -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="cell small-6">
-                    <div class="grid-y">
-                        <div class="cell small-6">
-                            <!-- mars rover module -->
-                            <h2>Mars Rover Footage from Your Birthday</h2>
-                            <div class="module" id="mars">
-                                <div class="rover-pic-info">
-                                    <p id="greetingBlurb"></p>
-                                    <span id="roverName" class=""></span>
-                                    <span id="roverDateTaken" class=""></span>
-                                    <span id="roverId" class=""></span>  
-                                </div> 
-                                <div class="mars-buttons">
-                                    <button id="marsRoverNextButton" class="button round secondary hide">Next picture</button>
-                                    <button id="marsRoverYearButton" class="button round secondary hide" onClick="newYear()">Try a new year?</button>
+    <div id="content">
+        <div class="side-nav">
+            <div>
+                <!-- append content from API call here using weather id -->
+                <div id="weather-today"></div>
+                <div id="weather-pic"></div>
+                <div id= "temperature"></div>
+                <div id="sunset"></div>
+                <div id="forecast"></div>
+            </div>
+            <hr>
+            <div id = "moon">
+                <!-- append content from API call here using moon id -->
+                <div id="moon-pic"></div>
+                <div id="moon-info"></span></div>
+            </div>
+        </div>
+        <div class="dashboard">
+            <div class="grid-container">
+                <div class="grid-x grid-padding-x">
+                    <div class="cell small-6">
+                        <div class="grid-y">
+                            <div class="cell small-6">
+                                <!-- fave planet module -->
+                                <h2 id = "planet-h2">Check out Your Fave Planet</h2>
+                                <div class="module" id="planet">
+                                    <div id = "planet-pic"></div>
                                 </div>
-                                <img src="" id="roverPicture"></img>                            </div>
+                            </div>
+                        </div>
+                        <div class="grid-y">
+                            <div class="cell small-6">
+                                <!-- astrology module -->
+                                <h2>Track the International Space Station</h2>
+                                <div class="module" style="border:none">
+                                    <script id="tracker" type="text/javascript"
+                                        src="https://www.n2yo.com/js/widget-tracker.js"></script>
+                                    <!-- append content from API call here using moon id -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cell small-6">
+                        <div class="grid-y">
+                            <div class="cell small-6">
+                                <!-- mars rover module -->
+                                <h2>Mars Rover Footage from Your Birthday</h2>
+                                <div class="module" id="mars">
+                                    <div class="rover-pic-info">
+                                        <p id="greetingBlurb"></p>
+                                        <span id="roverName" class=""></span>
+                                        <span id="roverDateTaken" class=""></span>
+                                        <span id="roverId" class=""></span>  
+                                    </div> 
+                                    <div class="mars-buttons">
+                                        <button id="marsRoverNextButton" class="button round secondary hide">Next picture</button>
+                                        <button id="marsRoverYearButton" class="button round secondary hide" onClick="newYear()">Try a new year?</button>
+                                    </div>
+                                    <img src="" id="roverPicture"></img>                            </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</body>
-<body>
-    <div class="content">
-        <div class="side-nav">
-                <div id="weather-today"></div>
-                <div id="weather-pic"></div>
-                <div id="temperature"></div>
-                <div id="sunset"></div>
-                <div id="forecast"></div>
-                <div id="moon"></div>
-                <div id="moon-pic"></div>
-                <div id="moon-info"></div>
         </div>
     </div>
     <div class="nav-buttons">
