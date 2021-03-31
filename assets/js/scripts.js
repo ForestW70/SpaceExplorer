@@ -16,7 +16,7 @@ let astroPicTodayApi = 'https://api.nasa.gov/planetary/apod?api_key=g8dgZj7O16CE
 let earthPic = 'https://api.nasa.gov/EPIC/api/natural?api_key=g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'
 
 
-const body = $("body");
+
 
 // function renderImage() {
 // fetch(astroPicTodayApi)
@@ -52,33 +52,33 @@ const body = $("body");
 //     });
 //   }
 
-renderInfo()
+// renderInfo()
 
-function renderInfo() {
-  let today = moment()
-  let info = document.getElementById("description")
-  if (info.style.display === "none") {
-    fetch(astroPicTodayApi)
-    .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        let img = data.hdurl;
-        let head = data.title;
-        let desc = data.explanation;
-        let test = $("#start-page").append(`<img class='astro-pix' src='${img}'></img>`)
-        console.log(img);
-        if (test) {
-          info.children[0].innerHTML = today.format("dddd, MMMM Do YYYY");
-          info.children[1].innerHTML = "Title: " + head;
-          info.children[2].innerHTML = desc;
-        }
-      });
-    info.style.display = "block";
-  } else {
-    info.style.display = "none";
-  }
-}
+// function renderInfo() {
+//   let today = moment()
+//   let info = document.getElementById("description")
+//   if (info.style.display === "none") {
+//     fetch(astroPicTodayApi)
+//     .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         let img = data.hdurl;
+//         let head = data.title;
+//         let desc = data.explanation;
+//         let test = $("#start-page").append(`<img class='astro-pix' src='${img}'></img>`)
+//         console.log(img);
+//         if (test) {
+//           info.children[0].innerHTML = today.format("dddd, MMMM Do YYYY");
+//           info.children[1].innerHTML = "Title: " + head;
+//           info.children[2].innerHTML = desc;
+//         }
+//       });
+//     info.style.display = "block";
+//   } else {
+//     info.style.display = "none";
+//   }
+// }
 
 
 // page 1 launch button
@@ -186,7 +186,7 @@ function renderWeather() {
     })
 }
 
-renderWeather()
+renderWeather();
 
 
 function renderMoonPhase() {
