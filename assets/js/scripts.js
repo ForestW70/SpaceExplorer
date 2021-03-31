@@ -423,7 +423,11 @@ document.getElementById("clear-form").addEventListener("click", function () {
   renderInfo();
 });
 
-// home-button: if i am done with my info and want to view the APOD, button to return to home screen
+function renderPlanet() {
+  var img = document.createElement('img');
+  img.src = "assets/images/" + userInfo.favPlanet + ".png";
+  document.getElementById('planet-pic').appendChild(img);
+  // document.getElementById('planet-h2').appendChild(userInfo.favPlanet + "!");
+};
 
-// return to form: if i am done with my info and want to view someone else's info, button to return to form
-
+renderPlanet();
