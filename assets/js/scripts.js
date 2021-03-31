@@ -15,9 +15,6 @@ const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 let astroPicTodayApi = 'https://api.nasa.gov/planetary/apod?api_key=g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'
 let earthPic = 'https://api.nasa.gov/EPIC/api/natural?api_key=g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'
 
-
-
-
 // function renderImage() {
 // fetch(astroPicTodayApi)
 //     .then(function (response) {
