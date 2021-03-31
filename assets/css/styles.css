@@ -29,11 +29,11 @@ body {
   100% { opacity: 0; }
 }
 .fa-blink {
--webkit-animation: fa-blink 2s linear infinite;
--moz-animation: fa-blink 2s linear infinite;
--ms-animation: fa-blink 2s linear infinite;
--o-animation: fa-blink 2s linear infinite;
-animation: fa-blink 2s linear infinite;
+-webkit-animation: fa-blink 1.5s linear infinite;
+-moz-animation: fa-blink 1.5s linear infinite;
+-ms-animation: fa-blink 1.5s linear infinite;
+-o-animation: fa-blink 1.5s linear infinite;
+animation: fa-blink 1.5s linear infinite;
 }
 
 #desc-query {
@@ -57,17 +57,34 @@ animation: fa-blink 2s linear infinite;
 }
 
 .desc-container {
-  width: 40%;
+  width: 33%;
   height: auto;
   background-color:rgb(224, 226, 202);
+  border: 5px solid #8b4f4f;
   border-radius: 10px;
-  padding: 10px
+  padding: 10px;
+  margin: -25px 10px 10px 40px;
 }
 
 .main-desc {
   background-color:rgb(224, 226, 202);
   color: black;
-  border-radius: 10px;
+  padding: 5px 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#desc-date {
+  font-style: italic;
+}
+
+#desc-header {
+  font-weight: 900;
+}
+
+#desc-body {
+  text-indent: 25px;
+  line-height: 20px;
+  font-family: fangsong;
 }
 
 b {
