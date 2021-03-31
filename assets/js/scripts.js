@@ -418,16 +418,15 @@ renderRoverPic();
 //}
 
 
-document.getElementById("clear-form").addEventListener("click", function () {
-  localStorage.clear();
-  renderInfo();
-});
-
 function renderPlanet() {
   var img = document.createElement('img');
   img.src = "assets/images/" + userInfo.favPlanet + ".png";
   document.getElementById('planet-pic').appendChild(img);
-  // document.getElementById('planet-h2').appendChild(userInfo.favPlanet + "!");
 };
 
 renderPlanet();
+
+document.getElementById("gohome").addEventListener("click", function () {
+  localStorage.clear();
+  window.location.href = "./index.html";
+});
