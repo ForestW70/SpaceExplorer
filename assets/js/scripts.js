@@ -371,6 +371,32 @@ renderRoverPic();
 
 
 
+//renderPlanet {
+  //planet api: https://rapidapi.com/astronomyapi-astronomyapi-default/api/astronomy?endpoint=apiendpoint_d15e47b7-f9e2-4ff8-82d0-c694a4bdfec3 
+  //once planet is retrieved from storage, add value to API call, fetch information
+  //append info to class-small-6[1]
+ let favPlanet = userInfo.favPlanet;
+  function displayFavPlanet(planet) {
+    let wiki = `https://en.wikipedia.org/wiki/${planet}_(planet)`;
+    page.append(`<a href="${wiki}">check it out!</a>`);
+    let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/{${planet}}`
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)
+        specs.append(`<p>${planet} was discovered by ${data.discoveredBy} on ${data.discoveryDate}</p>`)
+        specs.append(`<p>its density is around ${data.density} g/cm<sup>3</sup> and its mass is ${data.mass.massValue}<sup>${data.mass.massExponent}</sup>Kg</p>`)
+        specs.append(`<p>There are ${data.moons.length} moons orbiting ${planet}</p>`)
+        specs.append(`<p>its radius is around ${data.meanRadius}Km</p>`)
+        specs.append(`<p>its gravity is ${data.gravity}, about ${data.gravity/9.8} that of earths!</p>`)
+      });
+  }
+  displayFavPlanet(favPlanet);
+  
+
+
 
 
 
