@@ -13,10 +13,6 @@ body {
     background-color:black;
 }
 
-#content {
-  display: flex
-}
-
 #overlay {
     position: fixed;
     width: 100%;
@@ -33,16 +29,20 @@ body {
   100% { opacity: 0; }
 }
 .fa-blink {
--webkit-animation: fa-blink 2s linear infinite;
--moz-animation: fa-blink 2s linear infinite;
--ms-animation: fa-blink 2s linear infinite;
--o-animation: fa-blink 2s linear infinite;
-animation: fa-blink 2s linear infinite;
+-webkit-animation: fa-blink 1.5s linear infinite;
+-moz-animation: fa-blink 1.5s linear infinite;
+-ms-animation: fa-blink 1.5s linear infinite;
+-o-animation: fa-blink 1.5s linear infinite;
+animation: fa-blink 1.5s linear infinite;
 }
 
 #desc-query {
   position: absolute;
   background-color:rgba(255, 255, 255, 0);
+}
+
+#content {
+  display: flex;
 }
 
 #desc-btn {
@@ -57,17 +57,34 @@ animation: fa-blink 2s linear infinite;
 }
 
 .desc-container {
-  width: 40%;
+  width: 33%;
   height: auto;
   background-color:rgb(224, 226, 202);
+  border: 5px solid #8b4f4f;
   border-radius: 10px;
-  padding: 10px
+  padding: 10px;
+  margin: -25px 10px 10px 40px;
 }
 
 .main-desc {
   background-color:rgb(224, 226, 202);
   color: black;
-  border-radius: 10px;
+  padding: 5px 25px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#desc-date {
+  font-style: italic;
+}
+
+#desc-header {
+  font-weight: 900;
+}
+
+#desc-body {
+  text-indent: 25px;
+  line-height: 20px;
+  font-family: fangsong;
 }
 
 b {
@@ -210,11 +227,12 @@ header h1 {
 
 
 .side-nav {
-  width: auto;
+  margin-top: 60px;
+  width: 20%;
   border: 2px solid white;
   border-radius: 10px;
-  margin: 40px;
-  padding: 10px;
+  margin-left: 10px;
+  padding: 10px
 }
 
 #weather-today {
