@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js" integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+        integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
+        integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Space Explorer</title>
@@ -17,9 +20,10 @@
         <img src="assets/images/galaxy.jpg">
     </div>
     <div>
-        <h1 id = "append-name">Welcome to Space, </h1>
+        <h1 id="append-name">Welcome to Space, </h1>
     </div>
 </header>
+
 <body>
     <div id="content">
         <div class="side-nav">
@@ -27,12 +31,12 @@
                 <!-- append content from API call here using weather id -->
                 <div id="weather-today"></div>
                 <div id="weather-pic"></div>
-                <div id= "temperature"></div>
+                <div id="temperature"></div>
                 <div id="sunset"></div>
                 <div id="forecast"></div>
             </div>
             <hr>
-            <div id = "moon">
+            <div id="moon">
                 <!-- append content from API call here using moon id -->
                 <div id="moon-pic"></div>
                 <div id="moon-info"></span></div>
@@ -45,9 +49,9 @@
                         <div class="grid-y">
                             <div class="cell small-6">
                                 <!-- fave planet module -->
-                                <h2 id = "planet-h2">Check out Your Fave Planet</h2>
+                                <h2 id="planet-h2">Check out Your Fave Planet</h2>
                                 <div class="module" id="planet">
-                                    <div id = "planet-pic"></div>
+                                    <div id="planet-pic"></div>
                                 </div>
                             </div>
                         </div>
@@ -73,13 +77,16 @@
                                         <p id="greetingBlurb"></p>
                                         <span id="roverName" class=""></span>
                                         <span id="roverDateTaken" class=""></span>
-                                        <span id="roverId" class=""></span>  
-                                    </div> 
-                                    <div class="mars-buttons">
-                                        <button id="marsRoverNextButton" class="button round secondary hide">Next picture</button>
-                                        <button id="marsRoverYearButton" class="button round secondary hide" onClick="newYear()">Try a new year?</button>
+                                        <span id="roverId" class=""></span>
                                     </div>
-                                    <img src="" id="roverPicture"></img>                            </div>
+                                    <div class="mars-buttons">
+                                        <button id="marsRoverNextButton" class="button round secondary hide">Next
+                                            picture</button>
+                                        <button id="marsRoverYearButton" class="button round secondary hide"
+                                            onClick="">Try a new year?</button>
+                                    </div>
+                                    <img src="" id="roverPicture"></img>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -94,4 +101,5 @@
 <script src="assets/js/scripts.js"></script>
 <!-- <script type="text/javascript" src="https://www.n2yo.com/js/widget-tracker.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
 </html>
