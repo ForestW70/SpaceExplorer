@@ -20,83 +20,98 @@
         <img src="assets/images/galaxy.jpg">
     </div>
     <div>
-        <h1 id="append-name">Welcome to Space, </h1>
+        <h1 id="append-name">Welcome to Space</h1>
+    </div>
+    <div class="navbar-container">
+        <div class="nav-buttons-container">
+            <ul>
+                <li>
+                    <button id="gohome">Start over</button>
+                </li>
+                <span>|</span>
+                <li>
+                    <button id="planetFacts">Planet facts</button>
+                </li>
+                <span>|</span>
+                <li>
+                    <button id="trackIss">Track ISS</button>
+                </li>
+                <span>|</span>
+                <li>
+                    <button id="curiosityPicture">Rover pictures</button>
+                </li>
+                <span>|</span>
+                <li>
+                    <button id="potd">Daily space picture</button>
+                </li>
+            </ul>
+        </div>
     </div>
 </header>
 
 <body>
     <div id="content">
-        <div class="side-nav">
-            <div>
-                <!-- append content from API call here using weather id -->
-                <div id="weather-today"></div>
-                <div id="weather-pic"></div>
-                <div id="temperature"></div>
-                <div id="sunset"></div>
-                <div id="forecast"></div>
-            </div>
-            <hr>
-            <div id="moon">
-                <!-- append content from API call here using moon id -->
-                <div id="moon-pic"></div>
-                <div id="moon-info"></span></div>
-            </div>
-        </div>
-        <div class="dashboard">
-            <div class="grid-container">
-                <div class="grid-x grid-padding-x">
-                    <div class="cell small-6">
-                        <div class="grid-y">
-                            <div class="cell small-6">
-                                <!-- fave planet module -->
-                                <h2 id="planet-h2">Check out Your Fave Planet</h2>
-                                <div class="module" id="planet">
-                                    <div id="planet-pic"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid-y">
-                            <div class="cell small-6">
-                                <!-- astrology module -->
-                                <h2>Track the International Space Station</h2>
-                                <div class="module" style="border:none">
-                                    <script id="tracker" type="text/javascript"
-                                        src="https://www.n2yo.com/js/widget-tracker.js"></script>
-                                    <!-- append content from API call here using moon id -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cell small-6">
-                        <div class="grid-y">
-                            <div class="cell small-6">
-                                <!-- mars rover module -->
-                                <h2>Mars Rover Footage from Your Birthday</h2>
-                                <div class="module" id="mars">
-                                    <div class="rover-pic-info">
-                                        <p id="greetingBlurb"></p>
-                                        <span id="roverName" class=""></span>
-                                        <span id="roverDateTaken" class=""></span>
-                                        <span id="roverId" class=""></span>
-                                    </div>
-                                    <div class="mars-buttons">
-                                        <button id="marsRoverNextButton" class="button round secondary hide">Next
-                                            picture</button>
-                                        <button id="marsRoverYearButton" class="button round secondary hide"
-                                            onClick="">Try a new year?</button>
-                                    </div>
-                                    <img src="" id="roverPicture"></img>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        
+        <div class="row dashboard">
+
+            <div class="small-4 large-4 columns side-nav">
+                <div>
+                    <!-- append content from API call here using weather id -->
+                    <div id="weather-today"></div>
+                    <div id="weather-pic"></div>
+                    <div id="temperature"></div>
+                    <div id="sunset"></div>
+                    <div id="forecast"></div>
+                </div>
+                <hr>
+                <div id="moon">
+                    <!-- append content from API call here using moon id -->
+                    <div id="moon-pic"></div>
+                    <div id="moon-info"></span></div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="nav-buttons">
-        <button id="gohome">Start Over</button>
-    </div>
+
+            <article id="favPlanetCont" class="small-8 large-8 columns api-module">
+                <!-- fave planet module -->
+                <h2 id="planet-h2">Check out Your Fave Planet</h2>
+                <div class="module" id="planet">
+                    <div id="planet-pic"></div>
+                    <div id="wikiPlanet"></div>
+                    <div id="specs"></div>
+                </div>
+            </article>
+
+            <article id="marsRoverCont" class="small-8 large-8 columns api-module hide">
+                <!-- mars rover module -->
+                <h2>Mars Rover Footage from Your Birthday</h2>
+                <div class="module" id="mars">
+                    <div class="rover-pic-info">
+                        <p id="greetingBlurb"></p>
+                        <span id="roverName" class=""></span>
+                        <span id="roverDateTaken" class=""></span>
+                        <span id="roverId" class=""></span>
+                    </div>
+                    <div class="mars-buttons">
+                        <button id="marsRoverNextButton" class="button round secondary hide">Next
+                            picture</button>
+                        <button id="marsRoverYearButton" class="button round secondary hide"
+                            onClick="">Try a new year?</button>
+                    </div>
+                    <img src="" id="roverPicture"></img>
+                </div>
+            </article>
+
+            <article id="trackIssCont" class="small-8 large-8 columns api-module hide">
+                <!-- ISS module -->
+                <h2>Track the International Space Station</h2>
+                <div id="issScriptCont" class="module">
+                    <script id="tracker" type="text/javascript"
+                        src="https://www.n2yo.com/js/widget-tracker.js"></script>
+                    <!-- append content from API call here using moon id -->
+                </div>
+            </article>
+</div>
+</div>
 </body>
 <script src="assets/js/scripts.js"></script>
 <!-- <script type="text/javascript" src="https://www.n2yo.com/js/widget-tracker.js"></script> -->

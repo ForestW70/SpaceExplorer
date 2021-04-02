@@ -4,7 +4,7 @@ $(document).foundation(); //foundtation initializer
 
 
 // PAGE 1 //
-  // PAGE 1 //
+// PAGE 1 //
 // PAGE 1 //
 
 const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -23,10 +23,20 @@ function renderImage() {
       return response.json();
     })
     .then(function (data) {
+      console.log(data);
       let img = data.hdurl;
-      mainPage.append(`<img class='astro-pix' src='${img}'></img>`);
-      
-      lightBulb.click(function() {
+      let vid = data.url;
+      let mediaType = data.media_type;
+      if(mediaType == "video") {
+        let safePic = "https://www.hpcf.upr.edu/~abel/phl/star_field_full_gal.jpg";
+        mainPage.append(`<img class='astro-pix' src='${safePic}'></img>`);
+        $("#desc-vid").append(`<a src="${vid}">YouTube Video</a>`);
+
+      } else {
+        mainPage.append(`<img class='astro-pix' src='${img}'></img>`);
+      }
+
+      lightBulb.click(function () {
         if (pictureInfo.hasClass("hide")) {
           pictureInfo.removeClass("hide");
           let today = moment();
@@ -35,9 +45,9 @@ function renderImage() {
           $("#desc-date").text(today.format("dddd, MMMM Do YYYY"));
           $("#desc-header").text(head);
           $("#desc-body").text(`"${desc}"`);
-        } else { 
+        } else {
           pictureInfo.addClass("hide");
-      }
+        }
       })
     });
 }
@@ -89,11 +99,11 @@ formSubmitBtn.click(() => {
 
 
 // PAGE 2 //
-  // PAGE 2 //
+// PAGE 2 //
 // PAGE 2 //
 
-$("h1").append(userInfo.firstName);
-
+$("h1").append(`, ${userInfo.firstName}!`);
+renderPlanet();
 
 
 
@@ -102,6 +112,37 @@ document.getElementById("gohome").addEventListener("click", function () {
   localStorage.clear();
   window.location.href = "./index.html";
 });
+
+
+$("#planetFacts").click(function (e) {
+  e.preventDefault;
+  apiResetSwitcher();
+  renderPlanet();
+})
+
+$("#trackIss").click(function (e) {
+  e.preventDefault;
+  apiResetSwitcher();
+  $("#trackIssCont").removeClass("hide");
+})
+
+$("#curiosityPicture").click(function (e) {
+  e.preventDefault;
+  apiResetSwitcher();
+  renderRoverPic();
+})
+
+$("#potd").click(function (e) {
+  e.preventDefault;
+  apiResetSwitcher();
+})
+
+function apiResetSwitcher() {
+  $("#favPlanetCont").addClass("hide");
+  $("#trackIssCont").addClass("hide");
+  $("#marsRoverCont").addClass("hide");
+
+}
 
 
 
@@ -151,25 +192,6 @@ function renderWeather() {
 }
 
 renderWeather();
-
-
-
-
-
-
-
-// favorite planet render api
-function renderPlanet() {
-  var img = document.createElement('img');
-  img.src = "assets/images/" + userInfo.favPlanet + ".png";
-  document.getElementById('planet-pic').append(img);
-};
-
-renderPlanet();
-
-
-
-
 
 
 // Moon phase render api
@@ -235,11 +257,6 @@ function renderMoonPhase() {
 renderMoonPhase();
 
 
-
-
-
-
-
 // Sunset render api
 function renderSunset() {
   let sRequest = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + userInfo.zip + "?unitGroup=us&key=84QQ3LHG5UGSEKA2AMRQMQYNJ"
@@ -276,6 +293,40 @@ renderSunset();
 
 
 
+// favorite planet render api
+function renderPlanet() {
+  $("#favPlanetCont").removeClass("hide");
+  var img = document.createElement('img');
+  img.src = "assets/images/" + userInfo.favPlanet + ".png";
+  document.getElementById('planet-pic').append(img);
+
+  const page = document.getElementById("wikiPlanet");
+  const specs = document.getElementById("specs");
+
+  let favPlanet = userInfo.favPlanet;
+  function displayFavPlanet(planet) {
+    let wiki = `https://en.wikipedia.org/wiki/${planet}_(planet)`;
+    page.append(`<a href="${wiki}">check it out!</a>`);
+    let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/{${planet}}`
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)
+        specs.append(`<p>${planet} was discovered by ${data.discoveredBy} on ${data.discoveryDate}</p>`);
+        specs.append(`<p>its density is around ${data.density} g/cm<sup>3</sup> and its mass is ${data.mass.massValue}<sup>${data.mass.massExponent}</sup>Kg</p>`);
+        specs.append(`<p>There are ${data.moons.length} moons orbiting ${planet}</p>`);
+        specs.append(`<p>its radius is around ${data.meanRadius}Km</p>`);
+        specs.append(`<p>its gravity is ${data.gravity}, about ${data.gravity / 9.8} that of earths!</p>`);
+      });
+  }
+  displayFavPlanet(favPlanet);
+};
+
+
+
+
 
 
 // Mars rover pictures api
@@ -287,9 +338,11 @@ let apiYear = 2016;
 
 
 function renderRoverPic() {
+  $("#marsRoverCont").removeClass("hide");
+  
   let photoArray = [];
   let index = 0;
-  
+
   greetingBlurb.text(`On your birthday in ${apiYear}, this was where the Curiosity rover was hard at work.`);
 
   // api url construction
@@ -361,7 +414,6 @@ function renderRoverPic() {
 
 }
 
-renderRoverPic();
 
 
 
@@ -371,30 +423,9 @@ renderRoverPic();
 
 
 
-//renderPlanet {
-  //planet api: https://rapidapi.com/astronomyapi-astronomyapi-default/api/astronomy?endpoint=apiendpoint_d15e47b7-f9e2-4ff8-82d0-c694a4bdfec3 
-  //once planet is retrieved from storage, add value to API call, fetch information
-  //append info to class-small-6[1]
- let favPlanet = userInfo.favPlanet;
-  function displayFavPlanet(planet) {
-    let wiki = `https://en.wikipedia.org/wiki/${planet}_(planet)`;
-    page.append(`<a href="${wiki}">check it out!</a>`);
-    let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/{${planet}}`
-    fetch(requestUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data)
-        specs.append(`<p>${planet} was discovered by ${data.discoveredBy} on ${data.discoveryDate}</p>`)
-        specs.append(`<p>its density is around ${data.density} g/cm<sup>3</sup> and its mass is ${data.mass.massValue}<sup>${data.mass.massExponent}</sup>Kg</p>`)
-        specs.append(`<p>There are ${data.moons.length} moons orbiting ${planet}</p>`)
-        specs.append(`<p>its radius is around ${data.meanRadius}Km</p>`)
-        specs.append(`<p>its gravity is ${data.gravity}, about ${data.gravity/9.8} that of earths!</p>`)
-      });
-  }
-  displayFavPlanet(favPlanet);
-  
+
+
+
 
 
 
