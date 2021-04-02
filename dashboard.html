@@ -62,8 +62,13 @@
                     <div id="weather-today"></div>
                     <div id="weather-pic"></div>
                     <div id="temperature"></div>
-                    <div id="sunset"></div>
                     <div id="forecast"></div>
+                </div>
+                <hr>
+                <div>
+                    <!-- append content from API call here using sunset id -->
+                    <div id="sImg"></div>
+                    <div id="sunset"></div>
                 </div>
                 <hr>
                 <div id="moon">
@@ -77,10 +82,15 @@
                 <!-- fave planet module -->
                 <h2 id="planet-h2">Check out Your Favorite Planet</h2>
                 <div class="module" id="planet">
-                    <div id="planet-pic"></div>
-                    <div id="wikiPlanet"></div>
-                    <div id="specs"></div>
-                </div>
+                    <h3 id="planet-name"></h3>
+                        <div id="planet-pic"></div>
+                            <ul id="specs">
+                                <li id="radius"></li>
+                                <li id="mass"></li>
+                                <li id="density"></li>
+                                <li id="gravity"></li>
+                            </ul>
+                    </div>
             </article>
 
             <article id="marsRoverCont" class="small-8 large-8 columns api-module hide">

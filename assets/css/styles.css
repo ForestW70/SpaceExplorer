@@ -297,6 +297,12 @@ header h1 {
   margin: auto;
 }
 
+#planet-name {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
 #issScriptCont div {
   display: flex;
   justify-content: center;
@@ -325,7 +331,7 @@ hr {
   font-size: 20px;
 }
 
-#sunset-pic {
+#sImg {
   padding-left: 50%;
   padding-right: 25%;
   margin-left: -62.5px;
