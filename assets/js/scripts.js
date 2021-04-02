@@ -380,15 +380,17 @@ function displayFavPlanet(planet) {
       console.log(data)
       console.log(data.discoveredBy)
 
-      nm = `Name: ${data.name}`
-      radius = `Radius: ${data.meanRadius}Km`
-      mass = `Mass: ${data.mass.massValue}^${data.mass.massExponent}`
-      gravity = `Gravity: ${data.gravity}, about ${data.gravity/9.8} times that of Earths!`
+      nm = data.englishName
+      radius = `RADIUS: ${data.meanRadius} km`
+      mass = `MASS: ${data.mass.massValue}^${data.mass.massExponent} kg`
+      density = `DENSITY: ${data.density} grams per cubic centimenter`
+      gravity = `GRAVITY: ${data.gravity}, about ${data.gravity/9.8} times that of Earths!`
 
       specs.append(wiki)
-      $("#name").append(nm)
+      $("#planname").append(nm)
       $("#radius").append(radius)
       $("#mass").append(mass)
+      $("#density").append(density)
       $("#gravity").append(gravity)
       
      
