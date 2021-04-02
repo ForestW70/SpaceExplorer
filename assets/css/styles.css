@@ -201,6 +201,12 @@ header img {
   height: 200px;
 }
 
+#specs {
+  font-size: 25px;
+  list-style-type: none;
+  margin-top: 15px
+}
+
 header h1 {
     margin-top: -150px;
     position: sticky;
@@ -237,7 +243,13 @@ header h1 {
 
 #weather-today {
   text-align:center;
-  font-size: 24px
+  font-size: 24px;
+  text-decoration: underline;
+  margin-bottom: 25px
+}
+
+hr {
+  margin-bottom: 25px
 }
 
 #temperature {
@@ -252,11 +264,20 @@ header h1 {
   font-size: 20px;
 }
 
+#sunset-pic {
+  padding-left: 50%;
+  padding-right: 25%;
+  margin-left: -62.5px;
+  margin-bottom: 20px
+}
+
 #moon-pic {
   padding-left: 50%;
   padding-right: 25%;
-  margin-left: -50px
+  margin-left: -75px;
 }
+
+
 #moon-info {
   font-size: 20px;
 }
