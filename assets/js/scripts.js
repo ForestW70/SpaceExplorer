@@ -106,7 +106,6 @@ formSubmitBtn.click(() => {
 // PAGE 2 //
 
 $("h1").append(`, ${userInfo.firstName}!`);
-renderPlanet();
 
 
 
@@ -120,7 +119,8 @@ document.getElementById("gohome").addEventListener("click", function () {
 $("#planetFacts").click(function (e) {
   e.preventDefault;
   apiResetSwitcher();
-  renderPlanet();
+  location.reload();
+  renderFavPlanet();
 })
 
 $("#trackIss").click(function (e) {
@@ -296,14 +296,15 @@ function renderPlanet() {
   $("#favPlanetCont").removeClass("hide");
   var img = document.createElement('img');
   img.src = "assets/images/" + userInfo.favPlanet + ".png";
-  document.getElementById('planet-pic').append(img);
+  document.getElementById('planet').appendChild(img);
+};
 
+renderPlanet();
+ 
+function displayFavPlanet(planet) {
+  renderPlanet();
   const page = document.getElementById("wikiPlanet");
-  const specs = document.getElementById("specs");
-
-  let favPlanet = userInfo.favPlanet;
-  
-  function displayFavPlanet(planet) {
+  const specs = document.getElementById("specs");let favPlanet = userInfo.favPlanet;
   let wiki = document.createElement("img")
   wiki.src = `assets/images/${planet}.png`;
   let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/{${planet}}`
@@ -325,15 +326,8 @@ function renderPlanet() {
       $("#radius").append(radius)
       $("#mass").append(mass)
       $("#gravity").append(gravity)
-      
-     
     });
   }
-displayFavPlanet(favPlanet);
-};
-
-
-
 
 
 // Mars rover pictures api
