@@ -15,6 +15,9 @@ const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 const mainPage = $("#start-page");
 const lightBulb = $("#desc-btn");
 const pictureInfo = $("#help");
+const flicker = $("#desc-query")
+var obj,
+    source;
 
 let astroPicTodayApi = 'https://api.nasa.gov/planetary/apod?api_key=g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'
 function renderImage() {
@@ -23,7 +26,6 @@ function renderImage() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
       let img = data.hdurl;
       let vid = data.url;
       let mediaType = data.media_type;
@@ -37,6 +39,7 @@ function renderImage() {
       }
 
       lightBulb.click(function () {
+
         if (pictureInfo.hasClass("hide")) {
           pictureInfo.removeClass("hide");
           let today = moment();
@@ -152,46 +155,41 @@ function apiResetSwitcher() {
 // weather render api
 function renderWeather() {
   let wRequest = "https://api.openweathermap.org/data/2.5/weather?zip=" + userInfo.zip + ",US&units=imperial&appid=59948208350e6af8ced51673faaaf707"
-  let wLocal = $("#weather-today");
-  let t = $("#temperature");
-  let pic = $("#weather-pic");
-  let f = $("#forecast");
-  let img = document.createElement("img");
+  // let t = $("#temperature");
+  let img = document.createElement("img")
+  let sImg = document.createElement("img");
 
   fetch(wRequest)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      wLocal.innerHTML = "Current Weather in " + data.name;
+      console.log(data)
+      $("#weather-today").html("Currently in " + data.name);
       img.src = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-      t.innerHTML = "Temperature: " + data.main.temp.toFixed() + "&degF"
-      t.append(img);
+      sImg.src = "assets/images/sunset.png"
+      $("#temperature").html("Temperature: " + data.main.temp.toFixed() + "&degF")
+      $("#temperature").append(img);
+      $("#sunset-pic").append(sImg)
 
 
-      if (data.weather[0].icon == "01d" || data.weather[0].icon == "01n") { // nested if statement untested, regular if statement good
-        if (data.main.temp >= 75) {
-          f.innerHTML = "The forecast is currently " + data.weather[0].main.toLowerCase() + " skies. If it stays like this, it should be a great evening for star gazing, and no coat is needed tonight!";
-        } else if (data.main.temp < 75) {
-          f.innerHTML = "The forecast is currently " + data.weather[0].main.toLowerCase() + " skies. If it stays like this, it should be a great evening for star gazing, but be sure to wear a coat!";
-        } else {
-          f.innerHTML = "The forecast isn't optimal for star-gazing right now. Check back later to see if the skies look more clear!";
-        }
-
+      if (data.weather[0].icon == "01d" || data.weather[0].icon == "01n") { 
+          $("#forecast").html("The forecast is currently calling for " + data.weather[0].main.toLowerCase() + " skies. If it remains like this, it'll be great for star-gazing.");
       }
-      if (data.weather[0].icon == "02d" || data.weather[0].icon == "02n") { // nested if statement untested, regular if statement good
-        if (data.main.temp >= 75) {
-          f.innerHTML = "The forecast is currently " + data.weather[0].description.toLowerCase() + ", but it should still be a great evening for star gazing, and no coat is needed tonight!";
-        } else if (data.main.temp < 75) {
-          f.innerHTML = "The forecast is currently " + data.weather[0].description.toLowerCase() + ", but it should still be a great evening for star gazing, but be sure to wear a coat!";
-        } else {
-          f.innerHTML = "The forecast isn't optimal for star-gazing right now. Check back later to see if the skies look more clear!";
-        }
+        
+      if (data.weather[0].icon == "02d" || data.weather[0].icon == "02n") { 
+        $("#forecast").html("The forecast is currently calling for " + data.weather[0].description.toLowerCase() + ". If it remains like this, it'll be great for star-gazing.");
       }
+          
+      if (data.weather[0].icon == "03d" || data.weather[0].icon == "03n" || data.weather[0].icon == "04d" || data.weather[0].icon == "04n" || data.weather[0].icon == "09d" || data.weather[0].icon == "09n" || data.weather[0].icon == "010d" || data.weather[0].icon == "10n" || data.weather[0].icon == "11d" || data.weather[0].icon == "11n" || data.weather[0].icon == "13d" || data.weather[0].icon == "13n" || data.weather[0].icon == "50d" || data.weather[0].icon == "50n") {
+        $("#forecast").html("The forecast is currently calling for " + data.weather[0].description.toLowerCase() + ". Right now isn't the best time to see anything in the sky. Check back later for an update!")
+      } 
+    
     })
 }
 
 renderWeather();
+
 
 
 // Moon phase render api
@@ -304,26 +302,35 @@ function renderPlanet() {
   const specs = document.getElementById("specs");
 
   let favPlanet = userInfo.favPlanet;
+  
   function displayFavPlanet(planet) {
-    let wiki = `https://en.wikipedia.org/wiki/${planet}_(planet)`;
-    page.append(`<a href="${wiki}">check it out!</a>`);
-    let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/{${planet}}`
-    fetch(requestUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data)
-        specs.append(`<p>${planet} was discovered by ${data.discoveredBy} on ${data.discoveryDate}</p>`);
-        specs.append(`<p>its density is around ${data.density} g/cm<sup>3</sup> and its mass is ${data.mass.massValue}<sup>${data.mass.massExponent}</sup>Kg</p>`);
-        specs.append(`<p>There are ${data.moons.length} moons orbiting ${planet}</p>`);
-        specs.append(`<p>its radius is around ${data.meanRadius}Km</p>`);
-        specs.append(`<p>its gravity is ${data.gravity}, about ${data.gravity / 9.8} that of earths!</p>`);
-      });
-  }
-  displayFavPlanet(favPlanet);
-};
+  let wiki = document.createElement("img")
+  wiki.src = `assets/images/${planet}.png`;
+  let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/{${planet}}`
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data)
+      console.log(data.discoveredBy)
 
+      nm = `Name: ${data.name}`
+      radius = `Radius: ${data.meanRadius}Km`
+      mass = `Mass: ${data.mass.massValue}^${data.mass.massExponent}`
+      gravity = `Gravity: ${data.gravity}, about ${data.gravity/9.8} times that of Earths!`
+
+      specs.append(wiki)
+      $("#name").append(nm)
+      $("#radius").append(radius)
+      $("#mass").append(mass)
+      $("#gravity").append(gravity)
+      
+     
+    });
+  }
+displayFavPlanet(favPlanet);
+};
 
 
 
@@ -413,6 +420,12 @@ function renderRoverPic() {
     });
 
 }
+
+
+
+const page = document.getElementById("wikiPlanet");
+const specs = document.getElementById("planet-pic");
+let favPlanet = userInfo.favPlanet;
 
 
 
