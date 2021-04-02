@@ -427,5 +427,8 @@ hr {
   margin: 0 3px;
 }
 
-
-
+#planname {
+  text-align: center;
+  font-size: 50px;
+  margin-bottom: 20px;
+}

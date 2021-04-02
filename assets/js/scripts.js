@@ -293,6 +293,7 @@ renderSunset();
 
 // favorite planet render api
 function renderPlanet() {
+  $("#favPlanetCont").removeClass("hide");
   var img = document.createElement('img');
   img.src = "assets/images/" + userInfo.favPlanet + ".png";
   document.getElementById('planet').appendChild(img);
