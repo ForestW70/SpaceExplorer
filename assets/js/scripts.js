@@ -15,9 +15,6 @@ const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 const mainPage = $("#start-page");
 const lightBulb = $("#desc-btn");
 const pictureInfo = $("#help");
-const flicker = $("#desc-query")
-var obj,
-    source;
 
 let astroPicTodayApi = 'https://api.nasa.gov/planetary/apod?api_key=g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'
 function renderImage() {
@@ -119,8 +116,8 @@ document.getElementById("gohome").addEventListener("click", function () {
 $("#planetFacts").click(function (e) {
   e.preventDefault;
   apiResetSwitcher();
+  renderPlanet();
   location.reload();
-  renderFavPlanet();
 })
 
 $("#trackIss").click(function (e) {
@@ -260,6 +257,8 @@ function renderSunset() {
   let sRequest = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/" + userInfo.zip + "?unitGroup=us&key=84QQ3LHG5UGSEKA2AMRQMQYNJ"
   let time = moment().format("HH:mm:ss");
   let s = document.getElementById("sunset");
+  let sImg = document.createElement("img")
+  sImg.src = "assets/images/sunset.png"
 
   fetch(sRequest)
     .then(function (response) {
@@ -271,6 +270,8 @@ function renderSunset() {
       let parts = r.split(':'),
         hour = parts[0],
         minutes = parts[1];
+
+      $("#sImg").append(sImg)
 
       if (hour > 12) {
         set = (hour - 12) + ':' + minutes + ' pm';
@@ -293,42 +294,39 @@ renderSunset();
 
 // favorite planet render api
 function renderPlanet() {
-  $("#favPlanetCont").removeClass("hide");
-  var img = document.createElement('img');
-  img.src = "assets/images/" + userInfo.favPlanet + ".png";
-  document.getElementById('planet').appendChild(img);
-};
+$("#favPlanetCont").removeClass("hide");
+  
+let favPlanet = userInfo.favPlanet;
+    
+let wiki = document.createElement("img");
+let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/` + favPlanet
+fetch(requestUrl)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data)
+    console.log(data.discoveredBy)
+  
+    wiki.src = `assets/images/` + favPlanet + `.png`
+  
+    nm = `${data.englishName}`
+    radius = `Radius: ${data.meanRadius}Km`
+    mass = `Mass: ${data.mass.massValue}^${data.mass.massExponent}`
+    density = `Density: ${data.density} grams per cubic centimeter`
+    gravity = `Gravity: ${data.gravity}, about ${data.gravity/9.8} times that of Earths!`
+  
+    $("#planet-pic").append(wiki)
+    $("#planet-name").append(nm)
+    $("#radius").append(radius)
+    $("#mass").append(mass)
+    $("#density").append(density)
+    $("#gravity").append(gravity)
+         
+  });
+}
 
-renderPlanet();
- 
-function displayFavPlanet(planet) {
-  renderPlanet();
-  const page = document.getElementById("wikiPlanet");
-  const specs = document.getElementById("specs");let favPlanet = userInfo.favPlanet;
-  let wiki = document.createElement("img")
-  wiki.src = `assets/images/${planet}.png`;
-  let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/{${planet}}`
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data)
-      console.log(data.discoveredBy)
-
-      nm = `Name: ${data.name}`
-      radius = `Radius: ${data.meanRadius}Km`
-      mass = `Mass: ${data.mass.massValue}^${data.mass.massExponent}`
-      gravity = `Gravity: ${data.gravity}, about ${data.gravity/9.8} times that of Earths!`
-
-      specs.append(wiki)
-      $("#name").append(nm)
-      $("#radius").append(radius)
-      $("#mass").append(mass)
-      $("#gravity").append(gravity)
-    });
-  }
-
+renderPlanet()
 
 // Mars rover pictures api
 const nextBtn = $("#marsRoverNextButton");
