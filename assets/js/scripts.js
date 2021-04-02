@@ -141,7 +141,6 @@ function apiResetSwitcher() {
   $("#favPlanetCont").addClass("hide");
   $("#trackIssCont").addClass("hide");
   $("#marsRoverCont").addClass("hide");
-
 }
 
 
