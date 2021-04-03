@@ -302,7 +302,7 @@ const specs = document.getElementById("planet-pic");
 function renderPlanet() {
   $("#favPlanetCont").removeClass("hide");
 
-  let favPlanet = userInfo.favPlanet;
+  let favPlanet = userInfo.favPlanet.toLowerCase();
 
   let wiki = document.createElement("img");
   let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/` + favPlanet
@@ -418,7 +418,14 @@ function renderRoverPic() {
     });
 
 }
+// there are a few bugs that I didnt have time to fix properly. the main bug is when I press the next year button, it will keep multiplying the result by two (+1 year, +2 year, +4 year, ect). 
+// this only happened when I placed the next year function within the fetch function, which I did to try and solve another bug, which was displaying an error message if there were not pictures on that date to display.
+// unfortunatly I did not have time to fix these, but if you want to look at a specific year of photos, the best way is to just set that year as your birthdate.
+// -forest
 
+
+
+// picture of the day dashboard module
 function renderPotdDashboard() {
   $("#potdCont").removeClass("hide");
   const potdImg = $("#potdImg");

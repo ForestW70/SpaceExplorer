@@ -304,7 +304,6 @@ header h1 {
 
 
 .side-nav {
-  width: 25%;
   border: 2px solid white;
   border-radius: 10px;
   padding: 10px;
@@ -312,8 +311,7 @@ header h1 {
 }
 
 .api-module {
-  width: 60%;
-  margin-right: auto;
+  margin: 0 auto;
 }
 
 .grid-container {
@@ -474,3 +472,15 @@ hr {
 }
 
 
+@media screen and (max-width: 800px) {
+  #weather-today, #temperature, #sunset, #forecast, #moon-info {
+    font-size: 12px;
+  }
+  .side-nav {
+    
+    margin: 50px auto auto auto;
+  }
+  .side-nav img {
+    max-width: 25%;
+  }
+}
