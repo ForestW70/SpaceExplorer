@@ -12,7 +12,7 @@ Space Explorer allows users to enter into a dashboard showing customizable space
 - As a user, when I select my favorite planet from the drop-down menu, the application renders that planet’s position in the sky. 
 
 ## Link to Application
-link will go here eventually
+https://forestw70.github.io/SpaceExplorer/
 
 ## Application Preview
-image of home page will go here eventually
+![Preview of the application.](./assets/images/demo-pic.png)
