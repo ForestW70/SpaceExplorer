@@ -474,20 +474,3 @@ hr {
 }
 
 
-/* media query for smaller screen with weather at top */
-/* havent figured it out yet */
-@media screen and (max-width: 1000px) {
-  .dashboard {
-    /* display: flex;
-    flex-direction: row; */
-  }
-  .side-nav {
-    display: block;
-    color: green;
-    
-  }
-  .api-module {
-    display: block;
-    
-  }
-}

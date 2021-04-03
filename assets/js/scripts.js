@@ -296,6 +296,9 @@ renderSunset();
 
 
 // favorite planet render api
+const page = document.getElementById("wikiPlanet");
+const specs = document.getElementById("planet-pic");
+
 function renderPlanet() {
   $("#favPlanetCont").removeClass("hide");
 
@@ -453,9 +456,7 @@ function renderPotdDashboard() {
 
 
 
-const page = document.getElementById("wikiPlanet");
-const specs = document.getElementById("planet-pic");
-let favPlanet = userInfo.favPlanet;
+
 
 
 
