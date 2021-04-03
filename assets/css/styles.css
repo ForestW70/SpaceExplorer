@@ -57,38 +57,61 @@ animation: fa-blink 1.5s linear infinite;
 }
 
 .desc-container {
-  width: 33%;
+  width: 25%;
   height: auto;
-  background-color:rgb(144 130 130);
-  
+  background-color: rgb(158 99 99);
+  opacity: 0.9;
   border: 5px solid #8b4f4fab;
   border-radius: 10px;
   padding: 10px;
-  margin: -25px 10px 10px 40px;
+  margin: 25px 10px 10px 40px;
 }
 
 .main-desc {
-  background-color:rgb(224 226 202);
-  color: black;
-  padding: 5px 25px;
+  background-color: rgb(199 139 139);
+  color: #3a0404;
+  padding: 15px 25px;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
+.potd-info-dash {
+
+  color: #bebaba; /* bebeba, my favorite color */
+  padding: 10px 25px 0px 25px;
+  font-family: 'Times New Roman', Times, serif;
+  font-variant-numeric: oldstyle-nums;
+}
+}
+
+.module p {
+  color: #ada8a8;
+  padding: 10px 25px 0px 25px;
+  text-indent: 10px;
+  font-style: oblique;
+}
+
+
 #desc-date {
-  font-style: italic;
+  font-size: 1.6rem;
+  padding: 3px 5px;
+  background-color: transparent;
 }
 
 #desc-header {
-  font-weight: 900;
+  font-size: 1.1rem;
 }
 
 #desc-body {
-  text-indent: 25px;
+  font-style: italic;
+  text-indent: 10px;
   line-height: 20px;
-  font-family: fangsong;
-  padding: 25px 25px;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 15px 20px;
   text-align: justify;
+  margin-bottom: 0;
 }
 
 b {
@@ -258,15 +281,21 @@ header h1 {
 .dashboard h2 {
   /* margin-top: 10px; */
   background-color: black;
-  opacity: 0.6;
+  opacity: 0.8;
   border: 10px solid black;
   color: white;
   padding: 1rem 2rem;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 2px;
   text-align:center;
   border-bottom: 2px solid lightgray;
+}
+
+.dash-title-style {
+  /* margin-top: 10px; */
+  text-shadow: 3px 2px 3px #3a2bbb;
+  
 }
 
 .hide {
@@ -301,6 +330,11 @@ header h1 {
   text-align: center;
   font-size: 50px;
   margin-bottom: 20px;
+}
+
+#issScriptCont {
+  border: none;
+  padding-top: 10px;
 }
 
 #issScriptCont div {
@@ -437,4 +471,23 @@ hr {
   text-align: center;
   font-size: 50px;
   margin-bottom: 20px;
+}
+
+
+/* media query for smaller screen with weather at top */
+/* havent figured it out yet */
+@media screen and (max-width: 1000px) {
+  .dashboard {
+    /* display: flex;
+    flex-direction: row; */
+  }
+  .side-nav {
+    display: block;
+    color: green;
+    
+  }
+  .api-module {
+    display: block;
+    
+  }
 }

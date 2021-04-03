@@ -26,13 +26,14 @@ function renderImage() {
       let img = data.hdurl;
       let vid = data.url;
       let mediaType = data.media_type;
-      if(mediaType == "video") {
+      if (mediaType == "video") {
         let safePic = "https://www.hpcf.upr.edu/~abel/phl/star_field_full_gal.jpg";
         mainPage.append(`<img class='astro-pix' src='${safePic}'></img>`);
         $("#desc-vid").append(`<a src="${vid}">YouTube Video</a>`);
-
+        $("#desc-vid").removeClass("hide");
       } else {
         mainPage.append(`<img class='astro-pix' src='${img}'></img>`);
+        $("#desc-vid").addClass("hide");
       }
 
       lightBulb.click(function () {
@@ -113,6 +114,7 @@ document.getElementById("gohome").addEventListener("click", function () {
 });
 
 
+// dashboard nav bar buttons
 $("#planetFacts").click(function (e) {
   e.preventDefault;
   apiResetSwitcher();
@@ -135,12 +137,14 @@ $("#curiosityPicture").click(function (e) {
 $("#potd").click(function (e) {
   e.preventDefault;
   apiResetSwitcher();
+  renderPotdDashboard();
 })
 
 function apiResetSwitcher() {
   $("#favPlanetCont").addClass("hide");
   $("#trackIssCont").addClass("hide");
   $("#marsRoverCont").addClass("hide");
+  $("#potdCont").addClass("hide");
 }
 
 
@@ -169,18 +173,18 @@ function renderWeather() {
       $("#sunset-pic").append(sImg)
 
 
-      if (data.weather[0].icon == "01d" || data.weather[0].icon == "01n") { 
-          $("#forecast").html("The forecast is currently calling for " + data.weather[0].main.toLowerCase() + " skies. If it remains like this, it'll be great for star-gazing.");
+      if (data.weather[0].icon == "01d" || data.weather[0].icon == "01n") {
+        $("#forecast").html("The forecast is currently calling for " + data.weather[0].main.toLowerCase() + " skies. If it remains like this, it'll be great for star-gazing.");
       }
-        
-      if (data.weather[0].icon == "02d" || data.weather[0].icon == "02n") { 
+
+      if (data.weather[0].icon == "02d" || data.weather[0].icon == "02n") {
         $("#forecast").html("The forecast is currently calling for " + data.weather[0].description.toLowerCase() + ". If it remains like this, it'll be great for star-gazing.");
       }
-          
+
       if (data.weather[0].icon == "03d" || data.weather[0].icon == "03n" || data.weather[0].icon == "04d" || data.weather[0].icon == "04n" || data.weather[0].icon == "09d" || data.weather[0].icon == "09n" || data.weather[0].icon == "010d" || data.weather[0].icon == "10n" || data.weather[0].icon == "11d" || data.weather[0].icon == "11n" || data.weather[0].icon == "13d" || data.weather[0].icon == "13n" || data.weather[0].icon == "50d" || data.weather[0].icon == "50n") {
         $("#forecast").html("The forecast is currently calling for " + data.weather[0].description.toLowerCase() + ". Right now isn't the best time to see anything in the sky. Check back later for an update!")
-      } 
-    
+      }
+
     })
 }
 
@@ -293,36 +297,36 @@ renderSunset();
 
 // favorite planet render api
 function renderPlanet() {
-$("#favPlanetCont").removeClass("hide");
-  
-let favPlanet = userInfo.favPlanet;
-    
-let wiki = document.createElement("img");
-let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/` + favPlanet
-fetch(requestUrl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data)
-    console.log(data.discoveredBy)
-  
-    wiki.src = `assets/images/` + favPlanet + `.png`
-  
-    nm = `${data.englishName}`
-    radius = `Radius: ${data.meanRadius}Km`
-    mass = `Mass: ${data.mass.massValue}^${data.mass.massExponent}`
-    density = `Density: ${data.density} grams per cubic centimeter`
-    gravity = `Gravity: ${data.gravity}, about ${data.gravity/9.8} times that of Earths!`
-  
-    $("#planet-pic").append(wiki)
-    $("#planet-name").append(nm)
-    $("#radius").append(radius)
-    $("#mass").append(mass)
-    $("#density").append(density)
-    $("#gravity").append(gravity)
-         
-  });
+  $("#favPlanetCont").removeClass("hide");
+
+  let favPlanet = userInfo.favPlanet;
+
+  let wiki = document.createElement("img");
+  let requestUrl = `https://api.le-systeme-solaire.net/rest/bodies/` + favPlanet
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data)
+      console.log(data.discoveredBy)
+
+      wiki.src = `assets/images/` + favPlanet + `.png`
+
+      nm = `${data.englishName}`
+      radius = `Radius: ${data.meanRadius}Km`
+      mass = `Mass: ${data.mass.massValue}^${data.mass.massExponent}`
+      density = `Density: ${data.density} grams per cubic centimeter`
+      gravity = `Gravity: ${data.gravity}, about ${data.gravity / 9.8} times that of Earths!`
+
+      $("#planet-pic").append(wiki)
+      $("#planet-name").append(nm)
+      $("#radius").append(radius)
+      $("#mass").append(mass)
+      $("#density").append(density)
+      $("#gravity").append(gravity)
+
+    });
 }
 
 renderPlanet()
@@ -337,7 +341,7 @@ let apiYear = 2016;
 
 function renderRoverPic() {
   $("#marsRoverCont").removeClass("hide");
-  
+
   let photoArray = [];
   let index = 0;
 
@@ -410,6 +414,41 @@ function renderRoverPic() {
 
     });
 
+}
+
+function renderPotdDashboard() {
+  $("#potdCont").removeClass("hide");
+  const potdImg = $("#potdImg");
+
+  let astroPicTodayApi = 'https://api.nasa.gov/planetary/apod?api_key=g8dgZj7O16CEgqTkpqnE1To0CkSXf25FfnSffYX5'
+  fetch(astroPicTodayApi)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      let img = data.hdurl;
+      let vid = data.url;
+      let mediaType = data.media_type;
+      if (mediaType == "video") {
+        let safePic = "https://www.hpcf.upr.edu/~abel/phl/star_field_full_gal.jpg";
+        potd.attr("src", safePic);
+        $("#desc-vid-dash").attr("src", vid);
+        $("#desc-vid-dash").removeClass("hide");
+
+      } else {
+        potdImg.attr("src", img);
+        $("#desc-vid-dash").addClass("hide");
+      }
+
+      let today = moment();
+      let head = data.title;
+      let desc = data.explanation;
+      $("#desc-date-dash").text(today.format("dddd, MMMM Do YYYY"));
+      $("#desc-header-dash").text(head);
+      $("#desc-body-dash").text(`"${desc}"`);
+
+     
+    });
 }
 
 
